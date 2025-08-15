@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar.vue";
 import HeroSection from "./components/HeroSection.vue";
 import AboutSection from "./components/AboutSection.vue";
 import PricingSection from "./components/PricingSection.vue";
-import CtaSection from "./components/CtaSection.vue";
+import CtaSection from "./components/CTASection.vue";
 import FooterSection from "./components/FooterSection.vue";
 import LoadingBar from "./components/LoadingBar.vue";
 import AnimatedGridBackground from "./components/AnimatedGridBackground.vue";
