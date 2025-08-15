@@ -5,9 +5,11 @@ export const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumbe
   whatsappMessage
 )}`;
 
-export const email = "contato@salonsync.com.br";
+export const email = "contato@mangalab.io";
 export const phone = "(85) 8126-3142";
 export const address = "Eusébio, CE";
+export const loginUrl = "https://salondash.mangalab.io"
+
 
 export const socialLinks = {
   facebook: "https://www.facebook.com/seupagina",

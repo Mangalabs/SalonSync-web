@@ -26,25 +26,29 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  promoText: {
+    type: String,
+    default: "",
+  },
+  promo: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
 <template>
   <div
-    :class="`pricing-card rounded-2xl p-8 shadow-lg fade-in ${
+    :class="`pricing-card relative rounded-2xl p-8 shadow-lg fade-in ${
       featured ? 'featured shadow-xl transform scale-105' : ''
     }`"
   >
     <div
       v-if="featured"
-      class="absolute -top-4 left-1/2 transform -translate-x-1/2"
+      class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 text-sm font-semibold text-white rounded-full"
+      style="background-color: var(--yellow-strong)"
     >
-      <span
-        class="px-4 py-2 text-sm font-semibold text-white rounded-full"
-        style="background-color: var(--yellow-strong)"
-      >
-        Novo
-      </span>
+      Novo
     </div>
     <div class="text-center mb-8">
       <h3 class="text-2xl font-bold mb-2" style="color: var(--black-soft)">
@@ -77,5 +81,11 @@ defineProps({
     >
       Escolher Plano
     </a>
+    <p
+      v-if="promo"
+      class="mt-4 flex justify-center items-center w-full px-2 py-1 rounded-full bg-red-100 text-red-600 font-semibold shadow-sm"
+    >
+      {{promoText}}
+    </p>
   </div>
 </template>

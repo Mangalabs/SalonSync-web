@@ -3,16 +3,19 @@ import PricingCard from "./PricingCard.vue";
 
 const plans = [
   {
-    name: "Profissional",
-    description: "Ideal para salões médios",
-    price: "149",
-    professionals: "Até 5 profissionais",
+    name: "Promocional",
+    description: "Para os 10 primeiros clientes",
+    price: "89,90",
+    professionals: "Sem limite de profissionais",
     features: [
       "Gerenciamento de agenda",
       "Controle financeiro",
       "Controle de estoque",
       "Suporte prioritário",
+      " Insights de négocio por inteligência artificial"
     ],
+    promoText: "Apenas 5 planos restantes",
+    promo: true,
     featured: true,
   },
 ];
@@ -49,6 +52,8 @@ const plans = [
             :professionals="plan.professionals"
             :features="plan.features"
             :featured="plan.featured"
+            :promoText="plan.promoText"
+            :promo="plan.promo"
           />
         </div>
       </div>

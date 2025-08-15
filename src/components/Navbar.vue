@@ -7,8 +7,6 @@ const isMobileMenuOpen = ref(false);
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
-
-
 </script>
 
 <template>

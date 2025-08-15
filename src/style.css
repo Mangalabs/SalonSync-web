@@ -48,6 +48,7 @@ body {
   box-shadow: 0 8px 25px rgba(203, 161, 31, 0.3);
 }
 
+
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
