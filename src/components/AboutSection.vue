@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, reactive } from "vue";
 import { featureData } from "../data/featureData";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -8,7 +8,24 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
   (f) => library.add(f.icon)
 );
 
+const imageStatus = reactive({}); 
+
+const tryLoadImage = (feature, key) => {
+  const img = new Image();
+  img.src = feature.image;
+  img.onload = () => (imageStatus[key] = true);
+  img.onerror = () => (imageStatus[key] = false);
+};
+
 onMounted(() => {
+  [...featureData.primaryFeatures, ...featureData.secondaryFeatures].forEach(
+    (feature, index) => {
+      const key = `feature-${index}`;
+      imageStatus[key] = false;
+      if (feature.image) tryLoadImage(feature, key);
+    }
+  );
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -23,82 +40,36 @@ onMounted(() => {
 
 <template>
   <div class="font-elegant">
-    <section id="features" class="py-20 px-4 max-w-7xl mx-auto">
-      <div class="text-center mb-16 fade-in">
-        <h2
-          class="text-4xl md:text-5xl font-bold"
-          style="color: var(--black-soft)"
-        >
-          {{
-            featureData.mainTitle.heading.split(
-              featureData.mainTitle.highlight
-            )[0]
-          }}
-          <span style="color: var(--yellow-strong)">{{
-            featureData.mainTitle.highlight
-          }}</span>
-        </h2>
-        <p
-          class="text-xl mx-auto"
-          style="color: var(--gray-dark); max-width: 48rem"
-        >
-          {{ featureData.mainTitle.description }}
-        </p>
-      </div>
-    </section>
-
-    <template
-      v-for="(feature, index) in featureData.primaryFeatures"
-      :key="index"
-    >
-      <section class="py-20 px-4 max-w-7xl mx-auto">
+    <template v-for="(feature, index) in featureData.primaryFeatures" :key="index">
+      <section class="py-20 px-4 max-w-7xl mx-auto" :aria-labelledby="'feature-' + index">
         <div
           class="grid lg:grid-cols-2 gap-12 items-center fade-in"
           :class="{
-            'lg:[&>*:nth-child(1)]:order-2 lg:[&>*:nth-child(2)]:order-1':
-              index % 2 !== 0,
+            'lg:[&>*:nth-child(1)]:order-2 lg:[&>*:nth-child(2)]:order-1': index % 2 !== 0
           }"
         >
           <div>
-            <h3
-              class="text-3xl md:text-4xl font-bold"
-              style="color: var(--black-soft)"
-            >
+            <h3 :id="'feature-' + index" class="text-3xl md:text-4xl font-bold" style="color: var(--black-soft)">
               {{ feature.title.split(feature.highlight)[0] }}
-              <span style="color: var(--yellow-strong)">{{
-                feature.highlight
-              }}</span>
+              <span style="color: var(--yellow-strong)">{{ feature.highlight }}</span>
             </h3>
-            <p
-              class="text-lg mb-6"
-              style="color: var(--gray-dark); line-height: 1.75"
-            >
+            <p class="text-lg mb-6" style="color: var(--gray-dark); line-height: 1.75">
               {{ feature.description }}
             </p>
 
-            <div class="space-y-4 mb-8">
-              <div
-                v-for="(benefit, i) in feature.benefits"
-                :key="i"
-                class="flex items-center space-x-3"
-              >
-                <div
-                  class="w-2 h-2 rounded-full"
-                  style="background-color: var(--yellow-strong)"
-                ></div>
+            <div class="space-y-4 mb-8" role="list">
+              <div v-for="(benefit, i) in feature.benefits" :key="i" class="flex items-center space-x-3" role="listitem">
+                <div class="w-2 h-2 rounded-full" style="background-color: var(--yellow-strong)" aria-hidden="true"></div>
                 <span style="color: var(--gray-dark)">{{ benefit }}</span>
               </div>
             </div>
           </div>
 
           <div class="relative">
-            <div
-              class="h-80 flex items-center justify-center hover-lift overflow-hidden border-4 border-white shadow-lg"
-              :style="`border-radius: ${feature.shape};`"
-            >
+            <div class="h-80 flex items-center justify-center hover-lift overflow-hidden border-4 border-white shadow-lg" :style="`border-radius: ${feature.shape};`" aria-hidden="true">
               <img
-                :src="`${feature.image}`"
-                alt="Imagem ilustrativa"
+                :src="imageStatus[`feature-${index}`] && feature.image ? feature.image : '/no-image.png'"
+                :alt="feature.altText || `Imagem ilustrativa da funcionalidade ${feature.title}`"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -109,54 +80,28 @@ onMounted(() => {
 
     <section
       class="py-20 px-4"
-      style="
-        background: linear-gradient(
-          135deg,
-          var(--beige-light),
-          var(--off-white)
-        );
-      "
+      style="background: linear-gradient(135deg, var(--beige-light), var(--off-white));"
+      aria-labelledby="secondary-features-heading"
     >
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16 fade-in">
-          <h2
-            class="text-3xl md:text-4xl font-bold"
-            style="color: var(--black-soft)"
-          >
-            {{
-              featureData.secondaryTitle.heading.split(
-                featureData.secondaryTitle.highlight
-              )[0]
-            }}
-            <span style="color: var(--yellow-strong)">{{
-              featureData.secondaryTitle.highlight
-            }}</span>
+          <h2 id="secondary-features-heading" class="text-3xl md:text-4xl font-bold" style="color: var(--black-soft)">
+            {{ featureData.secondaryTitle.heading.split(featureData.secondaryTitle.highlight)[0] }}
+            <span style="color: var(--yellow-strong)">{{ featureData.secondaryTitle.highlight }}</span>
           </h2>
-          <p
-            class="text-lg mx-auto"
-            style="color: var(--gray-dark); max-width: 42rem"
-          >
+          <p class="text-lg mx-auto" style="color: var(--gray-dark); max-width: 42rem">
             {{ featureData.secondaryTitle.description }}
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div
-            v-for="(feature, index) in featureData.secondaryFeatures"
-            :key="index"
-            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 fade-in hover-lift"
-          >
-            <div
-              class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 icon-bounce"
-              :class="feature.bgClass"
-            >
-              <font-awesome-icon
-                :icon="feature.icon"
-                size="2x"
-                class="text-brown-dark w-8 h-8"
-              />
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+          <div v-for="(feature, index) in featureData.secondaryFeatures" :key="index"
+               class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 fade-in hover-lift"
+               role="listitem" :aria-labelledby="'secondary-feature-' + index">
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 icon-bounce" :class="feature.bgClass" aria-hidden="true">
+              <font-awesome-icon :icon="feature.icon" size="2x" class="text-brown-dark w-8 h-8" />
             </div>
-            <h3 class="text-xl font-bold mb-4" style="color: var(--black-soft)">
+            <h3 :id="'secondary-feature-' + index" class="text-xl font-bold mb-4" style="color: var(--black-soft)">
               {{ feature.title }}
             </h3>
             <p style="color: var(--gray-dark)">{{ feature.description }}</p>
@@ -201,10 +146,6 @@ onMounted(() => {
   .hover-lift:hover,
   .icon-bounce:hover {
     transform: none;
-  }
-  button {
-    width: 100%;
-    padding: 1rem;
   }
 }
 </style>

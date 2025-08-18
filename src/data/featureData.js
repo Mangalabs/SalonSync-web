@@ -45,7 +45,7 @@ export const featureData = {
       ],
       icon: faChartLine,
       shape: "40% 60% 80% 20% / 45% 25% 75% 55%",
-      image: "https://www.incicle.com/wp-content/uploads/2024/12/image1-6.png"
+      image: "https://www.incicle.com/wp-content/uploads/2024/12/image1"
     },
     {
       title: "Clientes fiéis",

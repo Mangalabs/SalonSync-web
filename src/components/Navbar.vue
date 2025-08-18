@@ -10,32 +10,36 @@ const toggleMobileMenu = () => {
 </script>
 
 <template>
-  <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm" aria-label="Navegação principal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
-          <img src="/iconSalonSync.png" class="w-30 h-15 p-1" alt="" />
+          <img src="/iconSalonSync.png" class="w-30 h-15 p-1" alt="Logo SalonSync" />
         </div>
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-8">
             <a
               href="#home"
               class="nav-link text-gray-700 hover:text-yellow-600 px-3 py-2 text-sm font-medium"
+              aria-label="Ir para a seção inicial"
               >Início</a
             >
             <a
               href="#features"
               class="nav-link text-gray-700 hover:text-yellow-600 px-3 py-2 text-sm font-medium"
+              aria-label="Ir para a seção de funcionalidades"
               >Funcionalidades</a
             >
             <a
               href="#pricing"
               class="nav-link text-gray-700 hover:text-yellow-600 px-3 py-2 text-sm font-medium"
+              aria-label="Ir para a seção de planos"
               >Planos</a
             >
             <a
               href="#contact"
               class="nav-link text-gray-700 hover:text-yellow-600 px-3 py-2 text-sm font-medium"
+              aria-label="Ir para a seção de contato"
               >Contato</a
             >
             <a
@@ -43,6 +47,7 @@ const toggleMobileMenu = () => {
               target="_blank"
               rel="noopener noreferrer"
               class="btn-primary px-6 py-2 rounded-full text-sm font-semibold inline-block"
+              aria-label="Assinar o SalonSync agora"
             >
               Assine Agora
             </a>
@@ -52,6 +57,8 @@ const toggleMobileMenu = () => {
           <button
             @click="toggleMobileMenu"
             class="mobile-menu-btn text-gray-700"
+            :aria-expanded="isMobileMenuOpen"
+            aria-label="Abrir menu mobile"
           >
             <i class="fas fa-bars text-xl"></i>
           </button>
@@ -59,26 +66,30 @@ const toggleMobileMenu = () => {
       </div>
     </div>
 
-    <div v-if="isMobileMenuOpen" class="md:hidden bg-white shadow-lg">
+    <div v-if="isMobileMenuOpen" class="md:hidden bg-white shadow-lg" aria-label="Menu mobile">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a
           href="#home"
           class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600"
+          aria-label="Ir para a seção inicial"
           >Início</a
         >
         <a
           href="#features"
           class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600"
+          aria-label="Ir para a seção de funcionalidades"
           >Funcionalidades</a
         >
         <a
           href="#pricing"
           class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600"
+          aria-label="Ir para a seção de planos"
           >Planos</a
         >
         <a
           href="#contact"
           class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600"
+          aria-label="Ir para a seção de contato"
           >Contato</a
         >
         <a
@@ -86,6 +97,7 @@ const toggleMobileMenu = () => {
           target="_blank"
           rel="noopener noreferrer"
           class="btn-primary w-full px-3 py-2 rounded-md text-base font-medium inline-block text-center"
+          aria-label="Assinar o SalonSync agora"
         >
           Assine Agora
         </a>
