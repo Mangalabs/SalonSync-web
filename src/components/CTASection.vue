@@ -15,7 +15,7 @@
   >
     <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 fade-in">
       <h2 id="cta-heading" class="text-4xl font-bold text-white mb-6">
-        Transforme seu salão com uma gestão inteligente e simples
+        Transforme seu negócio com uma gestão inteligente e simples
       </h2>
       <p class="text-xl text-white/90 mb-8">
         Simplifique sua operação com um sistema completo que preenche sua
