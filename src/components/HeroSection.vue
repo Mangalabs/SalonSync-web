@@ -50,7 +50,7 @@ import { whatsappLink } from "../data/contactData.js";
               aria-hidden="true"
             >
               <video
-                src="/demo.mp4"
+                src="/hero-video.mp4"
                 autoplay
                 muted
                 loop

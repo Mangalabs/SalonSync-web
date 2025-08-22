@@ -16,28 +16,29 @@ export const featureData = {
   mainTitle: {
     heading: "Tudo que seu salão precisa em um só lugar",
     highlight: "em um só lugar",
-    description: "Organize, atenda e venda mais sem esforço. Um sistema completo que cuida da gestão do seu salão e encanta seus clientes."
+    description:
+      "Organize, atenda e venda mais sem esforço. Um sistema completo que cuida da gestão do seu salão e encanta seus clientes.",
   },
 
   primaryFeatures: [
     {
       title: "Agenda inteligente",
       highlight: "inteligente",
-      description: "Agendamentos automáticos, sem erros e sem horários vazios. Seus clientes recebem lembretes no WhatsApp e você mantém a agenda sempre cheia.",
+      description:
+        "Agendamentos automáticos, sem erros e sem horários vazios. Você mantém a agenda sempre cheia.",
       benefits: [
-        "Lembretes automáticos para todos os clientes",
         "Agendamentos pelo WhatsApp 24h",
         "Evita marcações no mesmo horário",
-        "Avisos imediatos sobre cancelamentos"
       ],
       icon: faCalendarCheck,
       shape: "65% 35% 25% 75% / 55% 40% 60% 45%",
-      image: "https://www.incicle.com/wp-content/uploads/2024/12/image1-6.png"
+      image: "/chatIA.jpeg",
     },
     {
       title: "Controle do seu dinheiro",
       highlight: "dinheiro",
-      description: "Saiba exatamente quanto entra e sai, com relatórios claros que mostram seus lucros e ajudam a cortar prejuízos.",
+      description:
+        "Saiba exatamente quanto entra e sai, com relatórios claros que mostram seus lucros e ajudam a cortar prejuízos.",
       benefits: [
         "Comissões calculadas automaticamente",
         "Lista dos serviços e produtos mais rentáveis",
@@ -45,83 +46,77 @@ export const featureData = {
       ],
       icon: faChartLine,
       shape: "40% 60% 80% 20% / 45% 25% 75% 55%",
-      image: "https://www.incicle.com/wp-content/uploads/2024/12/image1"
+      image: "/dashboard-img.jpeg",
     },
-    {
-      title: "Clientes fiéis",
-      highlight: "fiéis",
-      description: "Transforme clientes em fãs do seu salão. Aniversários, promoções e pontos de fidelidade para que eles voltem sempre.",
-      benefits: [
-        "Histórico completo de cada cliente",
-        "Avisos automáticos de aniversário",
-        "Promoções personalizadas",
-      ],
-      icon: faUsers,
-      shape: "80% 20% 45% 55% / 35% 65% 25% 75%",
-      image: "https://www.incicle.com/wp-content/uploads/2024/12/image1-6.png"
-    }
   ],
 
   secondaryFeatures: [
-    { 
-      icon: faBoxesStacked, 
-      title: "Controle de produtos", 
-      description: "Nunca mais fique sem tintura ou shampoo. Receba alertas antes de acabar o estoque.", 
-      bgClass: "bg-salon-yellow-light"
+    {
+      icon: faBoxesStacked,
+      title: "Controle de produtos",
+      description:
+        "Nunca mais fique sem tintura ou shampoo. Receba alertas antes de acabar o estoque.",
+      bgClass: "bg-salon-yellow-light",
     },
-    { 
-      icon: faMobileScreen, 
-      title: "Multiplataforma", 
-      description: "Acesse do celular, tablet ou computador com a mesma facilidade.", 
-      bgClass: "bg-salon-brown-light"
+    {
+      icon: faMobileScreen,
+      title: "Multiplataforma",
+      description:
+        "Acesse do celular, tablet ou computador com a mesma facilidade.",
+      bgClass: "bg-salon-brown-light",
     },
-    { 
-      icon: faWhatsapp, 
-      title: "WhatsApp integrado", 
-      description: "Seus clientes confirmam e remarcarm pelo WhatsApp. Rápido, prático e sem ligações perdidas.", 
-      bgClass: "bg-salon-yellow-light"
+    {
+      icon: faWhatsapp,
+      title: "WhatsApp integrado",
+      description:
+        "Seus clientes confirmam e remarcarm pelo WhatsApp. Rápido, prático e sem ligações perdidas.",
+      bgClass: "bg-salon-yellow-light",
     },
-    { 
-      icon: faUserCog, 
-      title: "Controle da equipe", 
-      description: "Gerencie escalas, comissões e desempenho da equipe com poucos cliques.", 
-      bgClass: "bg-salon-yellow-light"
+    {
+      icon: faUserCog,
+      title: "Controle da equipe",
+      description:
+        "Gerencie escalas, comissões e desempenho da equipe com poucos cliques.",
+      bgClass: "bg-salon-yellow-light",
     },
     {
       icon: faHeadset,
       title: "Suporte sempre pronto",
-      description: "Conte com nossa equipe para te ajudar a qualquer momento, sem burocracia.",
-      bgClass: "bg-salon-yellow-light"
+      description:
+        "Conte com nossa equipe para te ajudar a qualquer momento, sem burocracia.",
+      bgClass: "bg-salon-yellow-light",
     },
     {
       icon: faMoneyBillWave,
       title: "Mais vendas para o seu salão",
-      description: "Crie promoções, pacotes e combos irresistíveis que aumentam seu faturamento de forma automática.",
-      bgClass: "bg-salon-brown-light"
-    }
+      description:
+        "Crie promoções, pacotes e combos irresistíveis que aumentam seu faturamento de forma automática.",
+      bgClass: "bg-salon-brown-light",
+    },
   ],
 
   secondaryTitle: {
     heading: "Todas as ferramentas para seu salão",
     highlight: "seu salão",
-    description: "Deixe o sistema cuidar da parte chata enquanto você foca no que ama: transformar a beleza dos seus clientes."
+    description:
+      "Deixe o sistema cuidar da parte chata enquanto você foca no que ama: transformar a beleza dos seus clientes.",
   },
 
   valuePropositions: [
     {
       icon: faClock,
       title: "Mais tempo para você",
-      description: "Menos burocracia, mais tempo para atender e encantar."
+      description: "Menos burocracia, mais tempo para atender e encantar.",
     },
     {
       icon: faChartLine,
       title: "Mais dinheiro no bolso",
-      description: "Controle seus custos e aumente seus lucros sem adivinhar."
+      description: "Controle seus custos e aumente seus lucros sem adivinhar.",
     },
     {
       icon: faUsers,
       title: "Clientes mais felizes",
-      description: "Organização e agilidade que fazem eles voltarem sempre."
-    }
-  ]
+      description: "Organização e agilidade que fazem eles voltarem sempre.",
+    },
+  ],
 };
