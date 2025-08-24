@@ -66,13 +66,13 @@ export const featureData = {
         "Acesse do celular, tablet ou computador com a mesma facilidade.",
       bgClass: "bg-salon-brown-light",
     },
-    {
-      icon: faWhatsapp,
-      title: "WhatsApp integrado",
-      description:
-        "Seus clientes confirmam e remarcarm pelo WhatsApp. Rápido, prático e sem ligações perdidas.",
-      bgClass: "bg-salon-yellow-light",
-    },
+    // {
+    //   icon: faWhatsapp,
+    //   title: "WhatsApp integrado",
+    //   description:
+    //     "Seus clientes confirmam e remarcarm pelo WhatsApp. Rápido, prático e sem ligações perdidas.",
+    //   bgClass: "bg-salon-yellow-light",
+    // },
     {
       icon: faUserCog,
       title: "Controle da equipe",
