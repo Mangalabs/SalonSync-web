@@ -12,7 +12,7 @@ const plans = [
       "Controle financeiro",
       "Controle de estoque",
       "Suporte prioritário",
-      " Insights de négocio por inteligência artificial"
+      " Insights de negócio por inteligência artificial"
     ],
     promoText: "Apenas 5 planos restantes",
     promo: true,
