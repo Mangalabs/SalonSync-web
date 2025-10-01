@@ -21,19 +21,20 @@ export const featureData = {
   },
 
   primaryFeatures: [
-    {
-      title: "Agenda inteligente",
-      highlight: "inteligente",
-      description:
-        "Agendamentos automáticos, sem erros e sem horários vazios. Você mantém a agenda sempre cheia.",
-      benefits: [
-        "Agendamentos pelo WhatsApp 24h",
-        "Evita marcações no mesmo horário",
-      ],
-      icon: faCalendarCheck,
-      shape: "65% 35% 25% 75% / 55% 40% 60% 45%",
-      image: "/chatIA.jpeg",
-    },
+    // TODO: Habilitar assim que o wpp estiver configurado
+    // {
+    //   title: "Agenda inteligente",
+    //   highlight: "inteligente",
+    //   description:
+    //     "Agendamentos automáticos, sem erros e sem horários vazios. Você mantém a agenda sempre cheia.",
+    //   benefits: [
+    //     "Agendamentos pelo WhatsApp 24h",
+    //     "Evita marcações no mesmo horário",
+    //   ],
+    //   icon: faCalendarCheck,
+    //   shape: "65% 35% 25% 75% / 55% 40% 60% 45%",
+    //   image: "/chatIA.jpeg",
+    // },
     {
       title: "Controle do seu dinheiro",
       highlight: "dinheiro",
@@ -65,13 +66,13 @@ export const featureData = {
         "Acesse do celular, tablet ou computador com a mesma facilidade.",
       bgClass: "bg-salon-brown-light",
     },
-    {
-      icon: faWhatsapp,
-      title: "WhatsApp integrado",
-      description:
-        "Seus clientes confirmam e remarcarm pelo WhatsApp. Rápido, prático e sem ligações perdidas.",
-      bgClass: "bg-salon-yellow-light",
-    },
+    // {
+    //   icon: faWhatsapp,
+    //   title: "WhatsApp integrado",
+    //   description:
+    //     "Seus clientes confirmam e remarcarm pelo WhatsApp. Rápido, prático e sem ligações perdidas.",
+    //   bgClass: "bg-salon-yellow-light",
+    // },
     {
       icon: faUserCog,
       title: "Controle da equipe",
