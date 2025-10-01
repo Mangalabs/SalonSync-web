@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useRoute } from "vue-router";
 
 import Navbar from "./components/Navbar.vue";
 import HeroSection from "./components/HeroSection.vue";
@@ -9,9 +10,8 @@ import CtaSection from "./components/CTASection.vue";
 import FooterSection from "./components/FooterSection.vue";
 import LoadingBar from "./components/LoadingBar.vue";
 import AnimatedGridBackground from "./components/AnimatedGridBackground.vue";
-import PaymentStatus from './components/PaymentStatus.vue';
 
-const currentPath = ref(window.location.pathname);
+const route = useRoute();
 
 function enableSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -38,9 +38,13 @@ function enableFadeInOnScroll() {
   document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 }
 
+const isPaymentPage = computed(() => route.path === '/fallback');
+
 onMounted(() => {
-  enableSmoothScroll();
-  enableFadeInOnScroll();
+  if (!isPaymentPage.value) {
+    enableSmoothScroll();
+    enableFadeInOnScroll();
+  }
 });
 </script>
 
@@ -48,28 +52,20 @@ onMounted(() => {
   <div class="min-h-screen" role="document" aria-label="Página do SalonSync - Sistema de Gestão para Salões">
     <LoadingBar />
 
-    <Navbar v-if="currentPath !== '/fallback'" />
+    <Navbar v-if="!isPaymentPage" />
 
     <main>
-      <div v-if="currentPath === '/'">
+      <router-view v-if="isPaymentPage" />
+      
+      <div v-else>
         <HeroSection />
         <AboutSection />
         <PricingSection />
         <CtaSection />
       </div>
-
-      <div v-else-if="currentPath === '/fallback'">
-        <div class="min-h-screen flex items-center justify-center gradient-bg p-4 mx-auto">
-          <PaymentStatus />
-        </div>
-      </div>
-
-      <div v-else>
-        <p class="text-center p-8">Página não encontrada</p>
-      </div>
     </main>
 
-    <FooterSection v-if="currentPath !== '/fallback'" />
-    <AnimatedGridBackground v-if="currentPath !== '/fallback'" />
+    <FooterSection v-if="!isPaymentPage" />
+    <AnimatedGridBackground v-if="!isPaymentPage" />
   </div>
 </template>

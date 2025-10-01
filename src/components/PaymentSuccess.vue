@@ -47,18 +47,19 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faCheck, faShare, faScissors, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faShare, faScissors, faStar, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCheck, faShare, faScissors, faStar);
+library.add(faCheck, faShare, faScissors, faStar, faArrowLeft);
 
+const route = useRoute()
 const shareButton = ref<HTMLButtonElement | null>(null)
 const companyName = ref<string | null>(null)
 
 const getCompanyName = () => {
-  const urlParams = new URLSearchParams(window.location.search)
-  const nameFromUrl = urlParams.get('company_name')
+  const nameFromUrl = route.query.company_name as string
   return nameFromUrl || null
 }
 
@@ -85,8 +86,10 @@ const handleShare = async () => {
         shareButton.value.innerHTML = 'Copiado!'
         shareButton.value.classList.add('bg-green-600')
         setTimeout(() => {
-          shareButton.value.innerHTML = originalText
-          shareButton.value.classList.remove('bg-green-600')
+          if (shareButton.value) {
+            shareButton.value.innerHTML = originalText
+            shareButton.value.classList.remove('bg-green-600')
+          }
         }, 2000)
       }
     }

@@ -1,48 +1,85 @@
 <template>
-  <div class="max-w-md w-full">
-    <PaymentSuccess v-if="status === 'success'" />
-    <PaymentError v-else-if="status === 'error'" />
-    
-    <div v-else class="text-center">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-      <p class="text-white">Verificando status do pagamento...</p>
+  <div class="min-h-screen flex flex-col justify-between gradient-bg p-4">
+    <div class="flex flex-1 items-center justify-center">
+      <div class="max-w-md w-full">
+        <PaymentSuccess v-if="status === 'success'" />
+        <PaymentError v-else-if="status === 'error'" />
+
+        <div v-else class="text-center">
+          <div
+            class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p class="text-white">Verificando status do pagamento...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-12 pt-4 text-center text-gray-800 font-semibold">
+      <p>
+        © 2025 MangaLab. Todos os direitos reservados. |
+        <span class="ml-2">
+          Desenvolvido com
+          <img
+            src="/icon-copyright.png"
+            alt="amor"
+            class="h-4 w-4 inline m-1"
+            aria-hidden="true" />
+          pela equipe
+          <a
+            class="text-yellow-400 hover:text-yellow-500 transition-colors"
+            href="https://www.mangalab.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visite o site da MangaLab">
+            <b>MangaLab</b>
+          </a>
+        </span>
+      </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import PaymentSuccess from './PaymentSuccess.vue'
 import PaymentError from './PaymentError.vue'
 
+const route = useRoute()
 const status = ref<'success' | 'error' | null>(null)
 const showDemoButtons = ref(false)
+
 const getPaymentStatus = (): 'success' | 'error' => {
-  const urlParams = new URLSearchParams(window.location.search)
-  
-  const successParam = urlParams.get('success')
-  
-  const statusParam = urlParams.get('status')
-  const paymentStatus = urlParams.get('payment_status')
-  
+  const successParam = route.query.success as string
+  const statusParam = route.query.status as string
+  const paymentStatus = route.query.payment_status as string
+
   if (successParam === 'true') {
     return 'success'
   } else if (successParam === 'false') {
     return 'error'
   }
-  
-  if (statusParam === 'success' || paymentStatus === 'success' || statusParam === 'approved') {
+
+  if (
+    statusParam === 'success' ||
+    paymentStatus === 'success' ||
+    statusParam === 'approved'
+  ) {
     return 'success'
-  } else if (statusParam === 'error' || statusParam === 'failed' || statusParam === 'cancelled' || paymentStatus === 'failed') {
+  } else if (
+    statusParam === 'error' ||
+    statusParam === 'failed' ||
+    statusParam === 'cancelled' ||
+    paymentStatus === 'failed'
+  ) {
     return 'error'
   }
-  
+
   return 'error'
 }
 
 onMounted(() => {
   status.value = getPaymentStatus()
-  
+
   if (import.meta.env?.MODE === 'development') {
     showDemoButtons.value = true
   }
