@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 
 import Navbar from "./components/Navbar.vue";
 import HeroSection from "./components/HeroSection.vue";
@@ -9,6 +9,9 @@ import CtaSection from "./components/CTASection.vue";
 import FooterSection from "./components/FooterSection.vue";
 import LoadingBar from "./components/LoadingBar.vue";
 import AnimatedGridBackground from "./components/AnimatedGridBackground.vue";
+import PaymentStatus from './components/PaymentStatus.vue';
+
+const currentPath = ref(window.location.pathname);
 
 function enableSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -44,14 +47,29 @@ onMounted(() => {
 <template>
   <div class="min-h-screen" role="document" aria-label="Página do SalonSync - Sistema de Gestão para Salões">
     <LoadingBar />
-    <Navbar />
+
+    <Navbar v-if="currentPath !== '/fallback'" />
+
     <main>
-      <HeroSection />
-      <AboutSection />
-      <PricingSection />
-      <CtaSection />
+      <div v-if="currentPath === '/'">
+        <HeroSection />
+        <AboutSection />
+        <PricingSection />
+        <CtaSection />
+      </div>
+
+      <div v-else-if="currentPath === '/fallback'">
+        <div class="min-h-screen flex items-center justify-center gradient-bg p-4 mx-auto">
+          <PaymentStatus />
+        </div>
+      </div>
+
+      <div v-else>
+        <p class="text-center p-8">Página não encontrada</p>
+      </div>
     </main>
-    <FooterSection />
-    <AnimatedGridBackground />
+
+    <FooterSection v-if="currentPath !== '/fallback'" />
+    <AnimatedGridBackground v-if="currentPath !== '/fallback'" />
   </div>
 </template>
