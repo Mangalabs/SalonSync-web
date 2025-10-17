@@ -106,6 +106,7 @@ export function Footer() {
                 <li key={index}>
                   <motion.a
                     href={link.href}
+                    target='_blank'
                     className='hover:text-[#f0b85d] transition-colors inline-flex items-center gap-2 border rounded-md bg-amber-200/25 px-3 py-1'
                     style={{ color: '#e5e5e5' }}
                     whileHover={{ x: 5 }}>
