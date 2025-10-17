@@ -1,6 +1,0 @@
-# Permitir que todos os motores de busca acessem o site
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://www.salonsync.com.br/sitemap.xml
