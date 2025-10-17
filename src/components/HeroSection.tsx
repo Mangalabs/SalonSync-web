@@ -14,51 +14,38 @@ export function HeroSection() {
         <div
           className='absolute inset-0 opacity-[0.03]'
           style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              #f0b85d,
-              #f0b85d 2px,
-              transparent 2px,
-              transparent 60px
-            )`,
+            backgroundImage:
+              'repeating-linear-gradient(45deg,#f0b85d,#f0b85d 2px,transparent 2px,transparent 60px)',
           }}
         />
 
         <div
-          className='absolute inset-0 opacity-[0.08]'
+          className='absolute inset-0 opacity-[0.05]'
           style={{
             backgroundImage:
               'radial-gradient(circle, #f0b85d 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
+            backgroundSize: '50px 50px',
           }}
         />
 
         <motion.div
-          className='absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-10 blur-[100px]'
+          className='absolute top-1/3 right-1/4 w-[420px] h-[420px] rounded-full opacity-10 blur-[80px]'
           style={{
             background: 'radial-gradient(circle, #f0b85d, transparent 70%)',
           }}
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -15, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className='absolute bottom-1/3 left-1/3 w-[400px] h-[400px] rounded-full opacity-8 blur-[100px]'
+          className='absolute bottom-1/3 left-1/4 w-[380px] h-[380px] rounded-full opacity-8 blur-[80px]'
           style={{
             background: 'radial-gradient(circle, #d99e4a, transparent 70%)',
           }}
-          animate={{
-            scale: [1.2, 1, 1.2],
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ scale: [1, 1.15, 1], x: [0, -20, 0], y: [0, 15, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
         />
 
-        <div className='absolute top-10 right-10 w-32 h-32 opacity-5'>
+        <div className='absolute top-10 right-10 w-24 h-24 opacity-5'>
           <svg viewBox='0 0 100 100' className='w-full h-full'>
             <polygon
               points='50 1 95 25 95 75 50 99 5 75 5 25'
@@ -74,9 +61,9 @@ export function HeroSection() {
         <div className='grid md:grid-cols-2 gap-12 items-center'>
           <div className='space-y-8'>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
               className='inline-flex items-center gap-2 bg-[#f0b85d]/10 border border-[#f0b85d]/30 rounded-full px-4 py-2'>
               <Sparkles className='w-4 h-4 text-[#f0b85d]' />
               <span className='text-[#f0b85d]'>
@@ -85,10 +72,10 @@ export function HeroSection() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='text-white text-5xl md:text-6xl lg:text-7xl'>
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className='text-white text-5xl md:text-6xl lg:text-7xl leading-tight'>
               Transforme seu negócio com{' '}
               <span className='bg-gradient-to-r from-[#f0b85d] to-[#d4a046] bg-clip-text text-transparent'>
                 gestão inteligente
@@ -96,63 +83,57 @@ export function HeroSection() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className='text-[#e5e5e5] text-xl'>
-              SalonSync é a solução completa para modernizar a gestão do seu
-              salão de beleza ou barbearia.
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className='text-[#e5e5e5] text-lg md:text-xl max-w-xl'>
+              O SalonSync moderniza a gestão do seu salão de beleza ou
+              barbearia, reduz custos e aumenta seus lucros de forma prática.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className='flex flex-col sm:flex-row gap-4'>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}>
-                <Button className='bg-gradient-to-r from-[#f0b85d] to-[#d4a046] text-black hover:shadow-[0_0_30px_rgba(240,184,93,0.5)] transition-all px-8 py-6 group cursor-pointer'>
-                  Começar Agora
-                  <ArrowRight className='ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform' />
-                </Button>
-              </motion.div>
+              <Button className='bg-gradient-to-r from-[#f0b85d] to-[#d4a046] text-black hover:shadow-[0_0_30px_rgba(240,184,93,0.5)] transition-all px-8 py-6 group cursor-pointer'>
+                Começar Agora
+                <ArrowRight className='ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform' />
+              </Button>
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className='relative flex justify-center items-center'>
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className='relative z-10 w-full max-w-2xl'>
-              <div className='rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(240,184,93,0.3)] border border-[#f0b85d]/20 bg-black/40 backdrop-blur-sm p-3'>
+            <div className='relative z-10 w-full max-w-2xl'>
+              <div className='rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(240,184,93,0.25)] border border-[#f0b85d]/20 bg-black/30 backdrop-blur-sm p-3'>
                 <div className='aspect-video rounded-lg overflow-hidden'>
                   <ImageWithFallback
-                    src='https://images.unsplash.com/photo-1758411898049-4de9588be514?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYwNTIyNzg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+                    src='https://images.unsplash.com/photo-1758411898049-4de9588be514?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
                     alt='SalonSync Dashboard'
                     className='w-full h-full object-cover'
+                    loading='lazy'
                   />
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             <motion.div
-              animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }}
+              animate={{ y: [0, 10, 0], rotate: [0, 3, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className='absolute -top-6 -right-6 w-24 h-24 bg-[#f0b85d] opacity-20 blur-3xl rounded-full'
+              className='absolute -top-6 -right-6 w-20 h-20 bg-[#f0b85d] opacity-20 blur-2xl rounded-full'
             />
             <motion.div
-              animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
+              animate={{ y: [0, -10, 0], rotate: [0, -3, 0] }}
               transition={{
                 duration: 3.5,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className='absolute -bottom-6 -left-6 w-24 h-24 bg-[#f0b85d] opacity-20 blur-3xl rounded-full'
+              className='absolute -bottom-6 -left-6 w-20 h-20 bg-[#f0b85d] opacity-20 blur-2xl rounded-full'
             />
           </motion.div>
         </div>
