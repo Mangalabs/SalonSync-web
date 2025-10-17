@@ -242,15 +242,23 @@ export function PricingSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             whileHover={{ y: -8 }}>
             <Card className='relative overflow-hidden bg-white border-4 border-black shadow-2xl h-full'>
-              <div className='absolute top-4 right-4 z-20'>
+              <div
+                className='
+        flex justify-center sm:justify-end
+        sm:absolute sm:top-4 sm:right-4
+        relative z-20 
+        mb-6 sm:mb-0
+      '>
                 <Badge
-                  className='px-3 py-1.5 text-xs border-none shadow-xl'
+                  className='px-3 py-1.5 text-xs border-none shadow-xl whitespace-nowrap'
                   style={{
                     background:
                       'linear-gradient(135deg, #000000 0%, #333333 100%)',
                   }}>
                   <Crown size={14} className='mr-1' />
-                  <span className='text-white'>Receita Garantida Todo Mês</span>
+                  <span className='text-white text-center'>
+                    Receita Garantida Todo Mês
+                  </span>
                 </Badge>
               </div>
 
@@ -262,13 +270,13 @@ export function PricingSection() {
                 transition={{ duration: 10, repeat: Infinity }}
               />
 
-              <div className='relative p-8'>
+              <div className='relative p-8 pt-4 sm:pt-8 md:pt-16'>
                 <motion.div
-                  className='flex justify-center mb-4'
+                  className='flex justify-center mb-6 sm:mb-4'
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}>
                   <Badge
-                    className='px-5 py-2 border-none shadow-lg'
+                    className='px-5 py-2 border-none shadow-lg whitespace-nowrap'
                     style={{
                       background:
                         'linear-gradient(135deg, #000000 0%, #333333 100%)',
@@ -284,9 +292,7 @@ export function PricingSection() {
                   </p>
                   <div className='flex items-baseline justify-center gap-2 mb-3'>
                     <span className='text-5xl text-black'>R$ 159,90</span>
-                    <span className='text-xl' style={{ color: '#727272' }}>
-                      /mês
-                    </span>
+                    <span className='text-xl text-[#727272]'>/mês</span>
                   </div>
 
                   <motion.div
@@ -315,13 +321,13 @@ export function PricingSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className='flex items-start gap-3'>
+                      className='flex items-start gap-3 flex-wrap'>
                       <motion.div
                         className='w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'
                         style={{
                           background:
                             benefit ===
-                            'Sistema de Assinaturas que garante receita todo mês'
+                            'Sistema de Assinaturas que garante receita mensal'
                               ? 'linear-gradient(135deg, #000000 0%, #333333 100%)'
                               : 'linear-gradient(135deg, #f0b85d 0%, #d99e4a 100%)',
                         }}
@@ -331,7 +337,7 @@ export function PricingSection() {
                           size={12}
                           className={
                             benefit ===
-                            'Sistema de Assinaturas que garante receita todo mês'
+                            'Sistema de Assinaturas que garante receita mensal'
                               ? 'text-white'
                               : 'text-black'
                           }
@@ -349,7 +355,7 @@ export function PricingSection() {
                       {benefit ===
                         'Sistema de Assinaturas que garante receita mensal' && (
                         <Badge
-                          className='ml-auto px-2 py-0.5 text-xs border-none shadow-md'
+                          className='ml-auto px-2 py-0.5 text-xs border-none shadow-md mt-1 sm:mt-0'
                           style={{
                             background:
                               'linear-gradient(135deg, #f0b85d 0%, #d99e4a 100%)',
@@ -389,7 +395,6 @@ export function PricingSection() {
                       <Crown size={20} />
                       Assinar Plano
                     </motion.span>
-
                     <motion.div
                       className='absolute inset-0'
                       style={{ background: '#000000' }}
@@ -401,8 +406,7 @@ export function PricingSection() {
                 </motion.div>
 
                 <motion.p
-                  className='text-center mt-4 text-sm'
-                  style={{ color: '#000000' }}
+                  className='text-center mt-4 text-sm text-[#000000]'
                   animate={{ opacity: [0.6, 1, 0.6] }}
                   transition={{ duration: 2, repeat: Infinity }}>
                   Seus concorrentes já têm clientes assinantes. E você?
