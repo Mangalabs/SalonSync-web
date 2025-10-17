@@ -4,7 +4,6 @@ import {
   Smartphone,
   Users,
   Headphones,
-  ArrowRight,
   CheckCircle2,
 } from 'lucide-react'
 import { Card } from './ui/card'

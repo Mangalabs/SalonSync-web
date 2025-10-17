@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { Button } from './ui/button'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 
 export function FinalCTA() {
   const highlights = [

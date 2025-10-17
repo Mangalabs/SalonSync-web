@@ -6,7 +6,7 @@ import { PaymentError } from './PaymentError';
 export const PaymentStatus = () => {
   const location = useLocation();
   const [status, setStatus] = useState<'success' | 'error' | null>(null);
-  const [showDemoButtons, setShowDemoButtons] = useState(false);
+ const [, setShowDemoButtons] = useState(false);
 
   const getPaymentStatus = (): 'success' | 'error' => {
     const params = new URLSearchParams(location.search);
@@ -39,7 +39,7 @@ export const PaymentStatus = () => {
 
   useEffect(() => {
     setStatus(getPaymentStatus());
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.MODE === "development") {
       setShowDemoButtons(true);
     }
   }, [location.search]);

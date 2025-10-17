@@ -2,12 +2,10 @@ import { motion } from 'framer-motion'
 import {
   TrendingUp,
   Gift,
-  Zap,
   CheckCircle2,
   Repeat,
   DollarSign,
   Users,
-  Sparkles,
   Crown,
   Calendar,
   Star,
@@ -73,11 +71,6 @@ export function SalesGrowth() {
     },
   ]
 
-  const stats = [
-    { value: '+65%', label: 'Retenção', color: '#f0b85d' },
-    { value: '3x', label: 'Previsibilidade', color: '#d99e4a' },
-    { value: '+40%', label: 'Vendas', color: '#f0b85d' },
-  ]
 
   return (
     <section

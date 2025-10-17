@@ -456,14 +456,14 @@ export function PricingSection() {
             <Button
               variant='outline'
               onClick={() => setIsDialogOpen(false)}
-              className='w-full sm:w-auto border-2 border-black/20 hover:bg-black/5'
+              className='w-full sm:w-auto border-2 border-black/20 hover:bg-black/5 cursor-pointer'
               disabled={isRedirecting}>
               Cancelar
             </Button>
             <Button
               onClick={handleCreateAccount}
               disabled={isRedirecting}
-              className='w-full sm:w-auto relative overflow-hidden'
+              className='w-full sm:w-auto relative overflow-hidden cursor-pointer'
               style={{
                 background: isRedirecting
                   ? '#cccccc'
