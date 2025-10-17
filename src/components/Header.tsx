@@ -38,7 +38,7 @@ export function Header() {
             className='flex items-center gap-2'
             whileHover={{ scale: 1.05 }}>
             <img
-              src='/public/icon-salon.png'
+              src='/icon-salon.png'
               alt='Logo Salon'
               className='w-22 h-12 object-contain'
             />

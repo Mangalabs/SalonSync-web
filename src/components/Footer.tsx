@@ -34,7 +34,7 @@ export function Footer() {
             className='md:col-span-2'>
             <div className='flex items-center gap-2 mb-4'>
               <img
-                src='/public/icon-salon.png'
+                src='/icon-salon.png'
                 alt='Logo Salon'
                 className='w-32 h-22'
               />
