@@ -43,7 +43,7 @@ export function SystemTools() {
       icon: Users,
       title: 'Controle da equipe',
       description:
-        'Gerencie escalas, comissões e desempenho com poucos cliques.',
+        'Comissões e desempenho com poucos cliques.',
       color: '#f0b85d',
       bgGradient: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
       features: [
@@ -55,12 +55,12 @@ export function SystemTools() {
     },
     {
       icon: Headphones,
-      title: 'Suporte sempre pronto',
-      description: 'Conte com nossa equipe para te ajudar a qualquer momento.',
+      title: 'Suporte completo',
+      description: 'Conte com nossa equipe para te ajudar. Aqui, você é mais que um número.',
       color: '#d99e4a',
       bgGradient: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
-      features: ['Chat ao vivo', 'WhatsApp direto', 'Base de conhecimento'],
-      badge: '24/7',
+      features: ['Tutorial', 'WhatsApp direto', 'Base de conhecimento'],
+      badge: 'Suporte Humanizado',
     },
   ]
 

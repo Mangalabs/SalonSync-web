@@ -14,7 +14,7 @@ export function Footer() {
 
   const contactInfo = [
     { icon: Mail, text: 'contato@mangalab.io', href: 'mailto:contato@mangalab.io' },
-    { icon: Phone, text: '(85) 98126-3142', href: 'tel:+5585981263142' },
+    { icon: Phone, text: '(85) 992961295', href: 'tel:+5585992961295' },
     { icon: MapPin, text: 'Eusébio - CE'}
   ];
 

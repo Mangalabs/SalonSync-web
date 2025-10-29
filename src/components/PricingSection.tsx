@@ -139,7 +139,7 @@ export function PricingSection() {
                     Controle completo do seu salão
                   </p>
                   <div className='flex items-baseline justify-center gap-2 mb-3'>
-                    <span className='text-5xl text-black'>R$ 99,90</span>
+                    <span className='text-5xl text-black'>R$ 119,90</span>
                     <span className='text-xl' style={{ color: '#727272' }}>
                       /mês
                     </span>

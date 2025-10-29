@@ -75,7 +75,7 @@ export function SalesGrowth() {
   return (
     <section
       id='assinatura'
-      className='relative py-16 overflow-hidden bg-gradient-to-br from-black via-[#0a0a0a] to-black'>
+      className='relative py-16 overflow-hidden bg-gradient-to-br from-black via-[#0a0a0a] to-black min-h-screen'>
       <motion.div
         className='absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-5 blur-3xl'
         style={{ background: '#f0b85d' }}
@@ -144,7 +144,7 @@ export function SalesGrowth() {
                   }}
                   whileHover={{ y: -5 }}
                   className='group'>
-                  <Card className='relative p-5 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border border-[#4f4332] hover:border-[#f0b85d] transition-all duration-300 min-h-[350px] flex flex-col justify-between'>
+                  <Card className='relative p-5 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border border-[#4f4332] hover:border-[#f0b85d] transition-all duration-300 flex flex-col justify-between'>
                     <Badge
                       className='absolute top-1 right-2 text-xs px-2  font-semibold shadow-md  border-2 bg-amber-500/10'
                       style={{
@@ -156,25 +156,17 @@ export function SalesGrowth() {
                     </Badge>
 
                     <motion.div
-                      className='w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg'
-                      style={{
-                        background: `linear-gradient(135deg, ${plan.gradient})`,
-                      }}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}>
+                      className='w-14 h-14 rounded-xl flex items-center justify-center mx-auto shadow-lg'>
                       <plan.icon
                         size={26}
-                        className='text-yellow-500 drop-shadow-md'
+                        className='text-yellow-500'
                       />
                     </motion.div>
 
-                    <div className='text-center mb-3'>
+                    <div className='text-center'>
                       <h4 className='text-white text-sm font-semibold mb-1'>
                         {plan.title}
                       </h4>
-                      <p className='text-xs mb-2' style={{ color: '#e5e5e5' }}>
-                        {plan.description}
-                      </p>
                       <div className='flex items-baseline justify-center gap-1'>
                         <span className='text-xl text-white font-bold'>
                           {plan.price}
@@ -183,23 +175,6 @@ export function SalesGrowth() {
                           {plan.frequency}
                         </span>
                       </div>
-                    </div>
-
-                    <div className='space-y-1 pt-3 border-t border-[#333333]'>
-                      {plan.features.map((feature, idx) => (
-                        <div key={idx} className='flex items-start gap-1.5'>
-                          <CheckCircle2
-                            size={14}
-                            style={{ color: '#f0b85d' }}
-                            className='flex-shrink-0 mt-0.5 drop-shadow-md'
-                          />
-                          <span
-                            className='text-xs'
-                            style={{ color: '#e5e5e5' }}>
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
                     </div>
                   </Card>
                 </motion.div>
@@ -215,7 +190,7 @@ export function SalesGrowth() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className='max-w-6xl mx-auto mt-8'>
           <Card className='p-6 bg-gradient-to-br from-[#1a1a1a]/80 to-[#0a0a0a]/80 border border-[#f0b85d]/20 backdrop-blur-sm'>
-            <h3 className='text-white mb-4 text-center text-sm'>
+            <h3 className='text-white mb-4 text-center text-sm font-semibold'>
               Por que usar o Sistema de Assinatura?
             </h3>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
