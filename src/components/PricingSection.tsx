@@ -24,7 +24,7 @@ import { useState } from 'react'
 export function PricingSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isRedirecting, setIsRedirecting] = useState(false)
-  const essentialBenefits = [
+  const sharedBenefits = [
     'Agenda organizada e sem confusão',
     'Controle financeiro claro e preciso',
     'Estoque sempre disponível',
@@ -35,21 +35,9 @@ export function PricingSection() {
     'Gerencie tudo de qualquer lugar',
   ]
 
-  const advancedBenefits = [
-    'Agenda organizada e sem confusão',
-    'Controle financeiro claro e preciso',
-    'Estoque sempre disponível',
-    'Suporte rápido e eficiente',
-    'Insights para aumentar ganhos',
-    'Profissionais ilimitados sem custo extra',
-    'Relatórios que revelam oportunidades',
-    'App mobile para gerenciar de qualquer lugar',
-    'Sistema de Assinaturas que garante receita mensal',
-  ]
+  const advancedExtra = ['Programa de Fidelidade e Assinaturas incluso']
 
-  const handleSubscribe = () => {
-    setIsDialogOpen(true)
-  }
+  const handleSubscribe = () => setIsDialogOpen(true)
 
   const handleCreateAccount = () => {
     setIsRedirecting(true)
@@ -73,10 +61,7 @@ export function PricingSection() {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.1, 0.3, 0.1],
-            }}
+            animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.3, 0.1] }}
             transition={{
               duration: 5 + Math.random() * 3,
               repeat: Infinity,
@@ -110,14 +95,6 @@ export function PricingSection() {
             transition={{ duration: 0.6 }}
             whileHover={{ y: -8 }}>
             <Card className='relative overflow-hidden bg-white border-none shadow-2xl h-full'>
-              <motion.div
-                className='absolute inset-0 bg-gradient-to-br from-[#f0b85d]/20 to-transparent opacity-50'
-                animate={{
-                  backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                }}
-                transition={{ duration: 10, repeat: Infinity }}
-              />
-
               <div className='relative p-8'>
                 <motion.div
                   className='flex justify-center mb-4'
@@ -140,9 +117,7 @@ export function PricingSection() {
                   </p>
                   <div className='flex items-baseline justify-center gap-2 mb-3'>
                     <span className='text-5xl text-black'>R$ 119,90</span>
-                    <span className='text-xl' style={{ color: '#727272' }}>
-                      /mês
-                    </span>
+                    <span className='text-xl text-[#727272]'>/mês</span>
                   </div>
 
                   <motion.div
@@ -157,40 +132,31 @@ export function PricingSection() {
                     }}
                     transition={{ duration: 2, repeat: Infinity }}>
                     <Zap size={16} style={{ color: '#f0b85d' }} />
-                    <span className='text-sm' style={{ color: '#666060' }}>
+                    <span className='text-sm text-[#666060]'>
                       Profissionais ilimitados inclusos
                     </span>
                   </motion.div>
                 </div>
 
                 <div className='space-y-3 mb-8'>
-                  {essentialBenefits.map((benefit, index) => (
-                    <motion.div
+                  {sharedBenefits.map((benefit, index) => (
+                    <div
                       key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className='flex items-start gap-3'>
-                      <motion.div
-                        className='w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'
+                      className='flex items-start gap-3 text-black/90'>
+                      <div
+                        className='w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-1'
                         style={{
                           background:
                             'linear-gradient(135deg, #f0b85d 0%, #d99e4a 100%)',
-                        }}
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                        transition={{ duration: 0.4 }}>
+                        }}>
                         <Check size={12} className='text-black' />
-                      </motion.div>
-                      <span className='text-sm text-black/90'>{benefit}</span>
-                    </motion.div>
+                      </div>
+                      <span className='text-sm'>{benefit}</span>
+                    </div>
                   ))}
                 </div>
 
-                <motion.div
-                  className='text-center'
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}>
+                <div className='text-center'>
                   <Button
                     size='lg'
                     className='w-full px-8 py-6 relative overflow-hidden group cursor-pointer'
@@ -200,37 +166,16 @@ export function PricingSection() {
                       border: 'none',
                     }}
                     onClick={handleSubscribe}>
-                    <motion.span
-                      className='relative z-10 flex items-center justify-center gap-2 text-white'
-                      animate={{
-                        textShadow: [
-                          '0 0 0px rgba(240,184,93,0)',
-                          '0 0 10px rgba(240,184,93,0.5)',
-                          '0 0 0px rgba(240,184,93,0)',
-                        ],
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}>
+                    <span className='relative z-10 flex items-center justify-center gap-2 text-white'>
                       <TrendingUp size={20} />
                       Assinar Plano
-                    </motion.span>
-
-                    <motion.div
-                      className='absolute inset-0'
-                      style={{ background: '#f0b85d' }}
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%' }}
-                      transition={{ duration: 0.6 }}
-                    />
+                    </span>
                   </Button>
-                </motion.div>
+                </div>
 
-                <motion.p
-                  className='text-center mt-4 text-sm'
-                  style={{ color: '#666060' }}
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}>
+                <p className='text-center mt-4 text-sm text-[#666060]'>
                   Cada dia sem organização é lucro perdido
-                </motion.p>
+                </p>
               </div>
             </Card>
           </motion.div>
@@ -241,42 +186,14 @@ export function PricingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             whileHover={{ y: -8 }}>
-            <Card className='relative overflow-hidden bg-white border-4 border-black shadow-2xl h-full'>
-              <div
-                className='
-        flex justify-center sm:justify-end
-        sm:absolute sm:top-4 sm:right-4
-        relative z-20 
-        mb-6 sm:mb-0
-      '>
-                <Badge
-                  className='px-3 py-1.5 text-xs border-none shadow-xl whitespace-nowrap'
-                  style={{
-                    background:
-                      'linear-gradient(135deg, #000000 0%, #333333 100%)',
-                  }}>
-                  <Crown size={14} className='mr-1' />
-                  <span className='text-white text-center'>
-                    Receita Garantida Todo Mês
-                  </span>
-                </Badge>
-              </div>
-
-              <motion.div
-                className='absolute inset-0 bg-gradient-to-br from-[#f0b85d]/30 to-transparent opacity-60'
-                animate={{
-                  backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                }}
-                transition={{ duration: 10, repeat: Infinity }}
-              />
-
-              <div className='relative p-8 pt-4 sm:pt-8 md:pt-16'>
+            <Card className='relative overflow-hidden bg-white border-none shadow-2xl h-full'>
+              <div className='relative p-8'>
                 <motion.div
-                  className='flex justify-center mb-6 sm:mb-4'
+                  className='flex justify-center mb-4'
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}>
                   <Badge
-                    className='px-5 py-2 border-none shadow-lg whitespace-nowrap'
+                    className='px-5 py-2 border-none'
                     style={{
                       background:
                         'linear-gradient(135deg, #000000 0%, #333333 100%)',
@@ -287,7 +204,7 @@ export function PricingSection() {
                 </motion.div>
 
                 <div className='text-center mb-6'>
-                  <p className='text-sm mb-2 text-black'>
+                  <p className='text-sm mb-2 text-black/70'>
                     Fidelização máxima com assinaturas automáticas
                   </p>
                   <div className='flex items-baseline justify-center gap-2 mb-3'>
@@ -297,82 +214,57 @@ export function PricingSection() {
 
                   <motion.div
                     className='inline-flex items-center gap-2 px-4 py-2 rounded-full'
-                    style={{ background: 'rgba(0,0,0,0.1)' }}
+                    style={{ background: '#f0b85d20' }}
                     animate={{
                       boxShadow: [
-                        '0 0 0 0 rgba(0, 0, 0, 0)',
-                        '0 0 0 10px rgba(0, 0, 0, 0.05)',
-                        '0 0 0 0 rgba(0, 0, 0, 0)',
+                        '0 0 0 0 rgba(240, 184, 93, 0)',
+                        '0 0 0 10px rgba(240, 184, 93, 0.1)',
+                        '0 0 0 0 rgba(240, 184, 93, 0)',
                       ],
                     }}
                     transition={{ duration: 2, repeat: Infinity }}>
-                    <Crown size={16} className='text-black' />
-                    <span className='text-sm text-black'>
-                      Transforme clientes em assinantes fiéis
+                    <Zap size={16} style={{ color: '#f0b85d' }} />
+                    <span className='text-sm text-[#666060]'>
+                      Profissionais ilimitados inclusos
                     </span>
                   </motion.div>
                 </div>
 
                 <div className='space-y-3 mb-8'>
-                  {advancedBenefits.map((benefit, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className='flex items-start gap-3 flex-wrap'>
-                      <motion.div
-                        className='w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5'
+                  {[...sharedBenefits, ...advancedExtra].map((benefit, i) => (
+                    <div
+                      key={i}
+                      className={`flex items-start gap-3 ${
+                        benefit ===
+                        'Programa de Fidelidade e Assinaturas incluso'
+                          ? 'font-bold text-black'
+                          : 'text-black/90'
+                      }`}>
+                      <div
+                        className='w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.20'
                         style={{
                           background:
                             benefit ===
-                            'Sistema de Assinaturas que garante receita mensal'
+                            'Programa de Fidelidade e Assinaturas incluso'
                               ? 'linear-gradient(135deg, #000000 0%, #333333 100%)'
                               : 'linear-gradient(135deg, #f0b85d 0%, #d99e4a 100%)',
-                        }}
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                        transition={{ duration: 0.4 }}>
+                        }}>
                         <Check
                           size={12}
                           className={
                             benefit ===
-                            'Sistema de Assinaturas que garante receita mensal'
+                            'Programa de Fidelidade e Assinaturas incluso'
                               ? 'text-white'
                               : 'text-black'
                           }
                         />
-                      </motion.div>
-                      <span
-                        className={`text-sm ${
-                          benefit ===
-                          'Sistema de Assinaturas que garante receita mensal'
-                            ? 'text-black font-bold'
-                            : 'text-black/90 font-medium'
-                        }`}>
-                        {benefit}
-                      </span>
-                      {benefit ===
-                        'Sistema de Assinaturas que garante receita mensal' && (
-                        <Badge
-                          className='ml-auto px-2 py-0.5 text-xs border-none shadow-md mt-1 sm:mt-0'
-                          style={{
-                            background:
-                              'linear-gradient(135deg, #f0b85d 0%, #d99e4a 100%)',
-                          }}>
-                          <span className='text-black font-bold'>
-                            EXCLUSIVO
-                          </span>
-                        </Badge>
-                      )}
-                    </motion.div>
+                      </div>
+                      <span className='text-sm'>{benefit}</span>
+                    </div>
                   ))}
                 </div>
 
-                <motion.div
-                  className='text-center'
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}>
+                <div className='text-center'>
                   <Button
                     size='lg'
                     className='w-full px-8 py-6 relative overflow-hidden group cursor-pointer'
@@ -395,20 +287,10 @@ export function PricingSection() {
                       <Crown size={20} />
                       Assinar Plano
                     </motion.span>
-                    <motion.div
-                      className='absolute inset-0'
-                      style={{ background: '#000000' }}
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%' }}
-                      transition={{ duration: 0.6 }}
-                    />
                   </Button>
-                </motion.div>
+                </div>
 
-                <motion.p
-                  className='text-center mt-4 text-sm text-[#000000]'
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2, repeat: Infinity }}>
+                <motion.p className='text-center mt-4 text-sm text-[#000000]'>
                   Seus concorrentes já têm clientes assinantes. E você?
                 </motion.p>
               </div>
@@ -435,19 +317,10 @@ export function PricingSection() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className='sm:max-w-md bg-white border-2 border-black/10'>
           <DialogHeader>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}>
-              <DialogTitle className='flex items-center gap-2 text-2xl'>
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 0.5, repeat: 3 }}>
-                  <Sparkles className='text-[#f0b85d]' size={28} />
-                </motion.div>
-                Quase lá! Vamos criar sua conta
-              </DialogTitle>
-            </motion.div>
+            <DialogTitle className='flex items-center gap-2 text-2xl'>
+              <Sparkles className='text-[#f0b85d]' size={28} />
+              Quase lá! Vamos criar sua conta
+            </DialogTitle>
             <DialogDescription className='text-base pt-4 text-black/80'>
               Para assinar este plano, você precisa criar sua conta gratuita no
               Dashboard. Depois de cadastrado, você encontrará o plano
