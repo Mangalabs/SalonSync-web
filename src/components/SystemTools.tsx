@@ -13,54 +13,60 @@ export function SystemTools() {
   const tools = [
     {
       icon: Package,
-      title: 'Controle de produtos',
+      title: 'Gestão inteligente de produtos',
       description:
-        'Nunca mais fique sem tintura ou shampoo. Receba alertas antes de acabar o estoque.',
+        'Controle cada item do seu estoque com praticidade. Saiba o que entra, o que sai e quanto cada produto representa nos seus custos.',
       color: '#f0b85d',
       bgGradient: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
       features: [
-        'Alertas automáticos',
-        'Histórico de compras',
-        'Previsão de estoque',
+        'Controle de entrada e saída',
+        'Histórico de consumo',
+        'Relatórios de custo por produto',
       ],
-      badge: 'Automático',
+      badge: 'Gestão total',
     },
     {
       icon: Smartphone,
-      title: 'Multiplataforma',
+      title: 'Acesso em qualquer dispositivo',
       description:
-        'Acesse do celular, tablet ou computador com a mesma facilidade.',
+        'Gerencie seu salão do jeito que quiser: no celular, tablet ou computador, com a mesma facilidade e rapidez.',
       color: '#d99e4a',
       bgGradient: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
       features: [
-        'Web responsivo',
-        'Sincronização em tempo real',
-        'Experiência uniforme em todos os dispositivos',
+        'Interface web totalmente responsiva',
+        'Sincronização instantânea',
+        'Mesma experiência em todos os dispositivos',
       ],
-      badge: 'Todos os dispositivos',
+      badge: 'Multiplataforma',
     },
     {
       icon: Users,
-      title: 'Controle da equipe',
+      title: 'Gestão completa da equipe',
       description:
-        'Comissões e desempenho com poucos cliques.',
+        'Acompanhe o desempenho, comissões e agenda de cada profissional em um só lugar, com clareza e praticidade.',
       color: '#f0b85d',
       bgGradient: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
       features: [
-        'Escalas inteligentes',
-        'Comissões automáticas',
+        'Escalas organizadas',
+        'Cálculo instantâneo de comissões',
         'Dashboard por profissional',
       ],
-      badge: 'Gestão completa',
+      badge: 'Controle completo',
     },
+
     {
       icon: Headphones,
-      title: 'Suporte completo',
-      description: 'Conte com nossa equipe para te ajudar. Aqui, você é mais que um número.',
+      title: 'Suporte dedicado em horário comercial',
+      description:
+        'Nossa equipe está disponível para ajudar você a aproveitar ao máximo o sistema. Atendimento rápido, humano e eficiente.',
       color: '#d99e4a',
       bgGradient: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
-      features: ['Tutorial', 'WhatsApp direto', 'Base de conhecimento'],
-      badge: 'Suporte Humanizado',
+      features: [
+        'Tutorial passo a passo',
+        'Contato direto via WhatsApp',
+        'Base de conhecimento completa',
+      ],
+      badge: 'Suporte humanizado',
     },
   ]
 

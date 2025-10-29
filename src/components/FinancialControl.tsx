@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { DollarSign, TrendingUp, AlertCircle } from 'lucide-react';
+import { DollarSign, TrendingUp, PieChart } from 'lucide-react';
 import { Card } from './ui/card';
 import { AreaChart, Area, ResponsiveContainer, BarChart, Bar, LineChart, Line } from 'recharts';
 
@@ -36,18 +36,18 @@ const features = [
     ]
   },
   {
-    icon: AlertCircle,
-    title: 'Nunca perca pagamentos',
-    description: 'Receba alertas automáticos sobre contas atrasadas e vencimentos, mantendo seu fluxo de caixa sempre sob controle.',
+    icon: PieChart,
+    title: 'Resumo financeiro inteligente',
+    description: 'Acompanhe suas receitas, despesas e investimentos em um único lugar, com gráficos intuitivos e atualizações em tempo real.',
     chartType: 'line',
     data: [
-      { value: 30 },
-      { value: 45 },
-      { value: 35 },
-      { value: 60 },
       { value: 50 },
+      { value: 65 },
+      { value: 55 },
+      { value: 75 },
       { value: 70 },
-      { value: 65 }
+      { value: 85 },
+      { value: 95 }
     ]
   }
 ];
