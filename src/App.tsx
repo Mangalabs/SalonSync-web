@@ -16,7 +16,7 @@ import { FinalCTA } from './components/FinalCTA'
 import { Footer } from './components/Footer'
 import { LoadingBar } from './components/LoadingBar'
 import { PaymentStatus } from './components/PaymentStatus'
-
+import { NewsletterSection } from './components/Newsletter'
 
 function AppWrapper() {
   const location = useLocation()
@@ -72,6 +72,7 @@ function AppWrapper() {
             <SystemTools />
             <SalesGrowth />
             <PricingSection />
+            <NewsletterSection />
             <FinalCTA />
           </>
         )}
