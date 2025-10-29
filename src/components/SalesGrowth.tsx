@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import {
   TrendingUp,
   Gift,
-  CheckCircle2,
   Repeat,
   DollarSign,
   Users,
