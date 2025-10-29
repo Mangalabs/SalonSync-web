@@ -59,46 +59,45 @@ export function HeroSection() {
 
       <div className='container mx-auto px-4 py-20 relative z-10'>
         <div className='grid md:grid-cols-2 gap-12 items-center'>
-<div className='space-y-8'>
-  <motion.div
-    initial={{ opacity: 0, y: 10 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className='inline-flex items-center gap-2 bg-[#f0b85d]/10 border border-[#f0b85d]/30 rounded-full px-4 py-2'>
-    <Sparkles className='w-4 h-4 text-[#f0b85d]' />
-    <span className='text-[#f0b85d]'>Gestão Inteligente para Salões</span>
-  </motion.div>
+          <div className='space-y-8'>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className='inline-flex items-center gap-2 bg-[#f0b85d]/10 border border-[#f0b85d]/30 rounded-full px-4 py-2'>
+              <Sparkles className='w-4 h-4 text-[#f0b85d]' />
+              <span className='text-[#f0b85d]'>
+                Gestão Inteligente para Salões
+              </span>
+            </motion.div>
 
-  {/* H1 fixo para melhorar LCP */}
-  <h1 className='text-white text-5xl md:text-6xl lg:text-7xl leading-tight'>
-    Transforme seu negócio com{' '}
-    <span className='bg-gradient-to-r from-[#f0b85d] to-[#d4a046] bg-clip-text text-transparent'>
-      gestão inteligente
-    </span>
-  </h1>
+            <h1 className='text-white text-5xl md:text-6xl lg:text-7xl leading-tight'>
+              Transforme seu negócio com{' '}
+              <span className='bg-gradient-to-r from-[#f0b85d] to-[#d4a046] bg-clip-text text-transparent'>
+                gestão inteligente
+              </span>
+            </h1>
 
-  {/* Animando apenas p abaixo do H1 */}
-  <motion.p
-    initial={{ opacity: 0, y: 10 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.2 }}
-    className='text-[#e5e5e5] text-lg md:text-xl max-w-xl'>
-    O SalonSync moderniza a gestão do seu salão de beleza ou barbearia,
-    reduz custos e aumenta seus lucros de forma prática.
-  </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className='text-[#e5e5e5] text-lg md:text-xl max-w-xl'>
+              O SalonSync moderniza a gestão do seu salão de beleza ou
+              barbearia, reduz custos e aumenta seus lucros de forma prática.
+            </motion.p>
 
-  <motion.div
-    initial={{ opacity: 0, y: 10 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.3 }}
-    className='flex flex-col sm:flex-row gap-4'>
-    <Button className='bg-gradient-to-r from-[#f0b85d] to-[#d4a046] text-black hover:shadow-[0_0_30px_rgba(240,184,93,0.5)] transition-all px-8 py-6 group cursor-pointer'>
-      Começar Agora
-      <ArrowRight className='ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform' />
-    </Button>
-  </motion.div>
-</div>
-
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className='flex flex-col sm:flex-row gap-4'>
+              <Button className='bg-gradient-to-r from-[#f0b85d] to-[#d4a046] text-black hover:shadow-[0_0_30px_rgba(240,184,93,0.5)] transition-all px-8 py-6 group cursor-pointer'>
+                Começar Agora
+                <ArrowRight className='ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform' />
+              </Button>
+            </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -109,11 +108,12 @@ export function HeroSection() {
               <div className='rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(240,184,93,0.25)] border border-[#f0b85d]/20 bg-black/30 backdrop-blur-sm p-3'>
                 <div className='aspect-video rounded-lg overflow-hidden'>
                   <ImageWithFallback
-                    src='https://images.unsplash.com/photo-1758411898049-4de9588be514?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
-                    alt='SalonSync Dashboard'
-                    className='w-full h-full object-cover'
+                    src='/SalonDash-dashboard.png'
+                    alt='SalonDash Dashboard'
+                    className='w-full h-full '
                     loading='lazy'
                   />
+                  <div className="absolute inset-0 bg-amber-900/10"></div>
                 </div>
               </div>
             </div>
